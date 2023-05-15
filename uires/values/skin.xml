@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<skin>
+	<imgframe name="skin_item_bk" src="img:png_item_bk" states="3" margin="2,2,2,2"/>
+	<colorrect name="skin_null" normal="rgba(255,255,255,0)"/>
+	<imgframe name="skin_xy_btn" src="img:png_xy_btn" states="3" margin="15,12,15,12"/>
+</skin>

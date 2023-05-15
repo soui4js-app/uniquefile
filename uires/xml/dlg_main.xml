@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SOUI name="mainWindow" title="@string/title" bigIcon="ICON_LOGO:32" smallIcon="ICON_LOGO:16" margin="5,5,5,5"  resizable="1" wndType="appMain"
+translucent="1"
+>
+  <root skin="_skin.sys.wnd.bkgnd" cache="1"  width="800" height="400" layout="vbox">
+    <caption size="-2,30">
+      <icon pos="10,8" src="ICON_LOGO:16"/>
+      <text pos="29,9">@string/title</text>
+      <imgbtn name="btn_close" skin="_skin.sys.btn.close"    pos="-45,0" tip="close" animate="1"/>
+    </caption>
+	<splitcol size="-2,0" weight="1" padding="5" sepSize="6">
+		<pane idealSize="350" minSize="300" priority="2"  layout="vbox">
+			<window size="-2,-1" layout="hbox" gravity="center">
+				<text text="扩展名:"/>
+				<edit size="0,30" weight="1" name="edit_ext" cue="多扩展名以空格分开" text="*" margin="2,2"/>
+			</window>
+			<window size="-2,-1" layout="hbox" interval="5" gravity="center">
+				<text text="搜索目录:"/>
+				<window size="0,0" weight="1"/>
+				<button name="btn_run" text="查找" size="100,30"/>
+				<button name="btn_stop" text="停止" size="100,30"/>
+			</window>		
+			<edit size="-2,0" weight="1" name="edit_output" multilines="1" vscrollbar="1"  margin="2,2"/>
+			<window size="-2,-1" layout="hbox" gravity="center">
+				<text text="md5计算长度(字节):"/>
+				<edit name="edit_md5_length" text="1024" size="100,30" margin="2"/>
+			</window>
+		</pane>
+		<pane minSize="100" priority="0" layout="vbox">
+			<window size="-2,-1" layout="hbox" gravity="center">
+				<text text="扫描进度:"/>
+				<progress name="prog_scan" size="0,20" weight="1" min="0" max="100" value="0"/>
+			</window>
+			<listview size="-2,0" weight="1" name="lv_output" margin="2" ncskin="_skin.sys.border">
+				<template defHeight="60" layout="vbox" interval="2" padding="5" skin="skin_item_bk">
+					<window size="-2,-1" layout="hbox" interval="2" msgTransparent="1">
+						<!--show md5-->
+						<text text="md5:"/>
+						<text size="0,-1" name="txt_md5" weight="1"/>
+					</window>
+					<window size="-2,-1" layout="hbox" interval="2" msgTransparent="1">
+						<!--show md5-->
+						<text text="size:"/>
+						<text size="0,-1" name="txt_size" weight="1"/>
+					</window>
+					<listview size="-2,-1" name="lb_files" visible="1">
+						<template itemHeight="40" layout="hbox" gravity="center" padding="5" skin="skin_null">
+							<check name="chk_flag"/>
+							<text name="txt_file" size="0,-1" weight="1" msgTransparent="0"/>
+							<button name="btn_explore" size="80,-2" text="Explore"/>
+						</template>
+					</listview> 
+				</template>
+			</listview>
+			<window size="-2,-1" layout="hbox" interval="10">
+				<radio name="radio_all" text="显示全部" size="100,30" checked="true"/>
+				<radio name="radio_repeated" text="显示有重复" size="100,30"/>
+			</window>
+			<window size="-2,-1" layout="hbox" interval="10" gravity="center">
+				<button name="btn_del_sel" size="100,30" text="删除选中"/>
+				<check name="chk_allow_undo" text="加入回收站" checked="1"/>				
+				<window size="0,0" weight="1"/>				
+				<button name="btn_clear" text="清除列表" size="100,30"/>
+			</window>
+		</pane>
+	</splitcol>
+  </root>
+</SOUI>
