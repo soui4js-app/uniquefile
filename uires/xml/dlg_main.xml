@@ -50,6 +50,7 @@ translucent="1"
 							<button name="btn_explore" size="80,-2" text="Explore"/>
 						</template>
 					</listview> 
+					<window size="-2,2" colorBkgnd="@color/blue"/>
 				</template>
 			</listview>
 			<window size="-2,-1" layout="hbox" interval="10">

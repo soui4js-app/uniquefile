@@ -267,18 +267,16 @@ class MainDialog extends soui4.JsHostWnd{
 	}
 
 	onBtnRun(e){
-		let buf = new soui4.SStringA();
-		this.edit_output.GetWindowText(buf,true);
-		let dirs = buf.c_str().split("\r\n");
+		let buf = this.edit_output.GetWindowText(true);
+		let dirs = buf.split("\r\n");
 
 		let edit_ext = this.FindIChildByName("edit_ext");
-		edit_ext.GetWindowText(buf,true);	
-		buf.ToLower();
-		let exts = buf.c_str().split(" ");
+		buf = edit_ext.GetWindowText(true).toLowerCase();	
+		let exts = buf.split(" ");
 
 		let edit_md5_length = this.FindIChildByName("edit_md5_length");
-		edit_md5_length.GetWindowText(buf,true);
-		let md5_length = parseInt(buf.c_str());
+		buf = edit_md5_length.GetWindowText(true);
+		let md5_length = parseInt(buf);
 		if(md5_length<1024) md5_length = 1024;
 		
 		this.worker = new os.Worker("./unique_file_worker.js");	
