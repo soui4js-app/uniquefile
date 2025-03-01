@@ -342,7 +342,7 @@ class MainDialog extends soui4.JsHostWnd{
 			for(let i=0;i<subDir.length;i++){
 				if(subDir[i] == "." || subDir[i]=="..")
 					continue;
-				let fullname = folder+"\\"+ subDir[i];
+				let fullname = folder+"/"+ subDir[i];
 				let fstat = os.stat(fullname);
 				if(fstat[0].mode & os.S_IFDIR){
 					enumDir(fullname);
@@ -372,11 +372,11 @@ function main(inst,workDir,args)
 	let souiFac = soui4.CreateSouiFactory();
 	//*
 	let resProvider = souiFac.CreateResProvider(1);
-	soui4.InitFileResProvider(resProvider,workDir + "\\uires");
+	soui4.InitFileResProvider(resProvider,workDir + "/uires");
 	//*/
 	/*
 	// show how to load resource from a zip file
-	let resProvider = soui4.CreateZipResProvider(theApp,workDir +"\\uires.zip","souizip");
+	let resProvider = soui4.CreateZipResProvider(theApp,workDir +"/uires.zip","souizip");
 	if(resProvider === 0){
 		soui4.log("load res from uires.zip failed");
 		return -1;
